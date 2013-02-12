@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Ruby on rails]]></title>
-  <link href="http://yoursite.com/atom.xml" rel="self"/>
-  <link href="http://yoursite.com/"/>
-  <updated>2013-02-13T12:02:16+13:00</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://ishu3101.github.com/atom.xml" rel="self"/>
+  <link href="http://ishu3101.github.com/"/>
+  <updated>2013-02-13T12:05:27+13:00</updated>
+  <id>http://ishu3101.github.com/</id>
   <author>
     <name><![CDATA[Ishan]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ruby on Rails Log Analyzer Review]]></title>
-    <link href="http://yoursite.com/Ruby-on-Rails-Log-Analyzer-Review/"/>
+    <link href="http://ishu3101.github.com/Ruby-on-Rails-Log-Analyzer-Review/"/>
     <updated>2013-02-13T13:36:00+13:00</updated>
-    <id>http://yoursite.com/Ruby-on-Rails-Log-Analyzer-Review</id>
+    <id>http://ishu3101.github.com/Ruby-on-Rails-Log-Analyzer-Review</id>
     <content type="html"><![CDATA[<p>I was recently asked to research some of the Ruby on Rails Log Analyzer and come up with what I thought would be most useful Ruby on Rails Log Analyzer to use.</p>
 
 <h4>These were the requirements for the Ruby on Rails Log Analyzer.</h4>
@@ -238,15 +238,6 @@ PostsController#archive                          471  621.67    8.04    1.04    
 <p>Now that you’ve read this review, which rails log analyzer should I use? The Request Log Analyzer gives the summary of the complete request times, database times and rendering times both by sum and mean which is similar to Production Log Analyzer which only shows it by sum. The Request Log Analyzer also has some additional features such as request distribution per hour,  most requested, HTTP methods, HTTP statuses returned. Production Log Analyzer also takes time to set up unlike the other two. Therefore Request Log Analyzer comes ahead of two</p>
 
 <p>I would recommend the Request Log Analyzer due to its speed, ease of use, low memory usage while having the all the feature of Production Log Analyzer plus more. However, Rawk is yet an another good alternative.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Welcome]]></title>
-    <link href="http://yoursite.com/welcome/"/>
-    <updated>2013-02-12T15:54:00+13:00</updated>
-    <id>http://yoursite.com/welcome</id>
-    <content type="html"><![CDATA[<p>Welcome to my blog.</p>
 ]]></content>
   </entry>
   
