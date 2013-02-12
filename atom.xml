@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Ruby on rails]]></title>
-  <link href="http://ishu3101.github.com/atom.xml" rel="self"/>
-  <link href="http://ishu3101.github.com/"/>
-  <updated>2013-02-13T11:52:11+13:00</updated>
-  <id>http://ishu3101.github.com/</id>
+  <link href="http://yoursite.com/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2013-02-13T12:02:16+13:00</updated>
+  <id>http://yoursite.com/</id>
   <author>
     <name><![CDATA[Ishan]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ruby on Rails Log Analyzer Review]]></title>
-    <link href="http://ishu3101.github.com/Ruby-on-Rails-Log-Analyzer-Review/"/>
-    <updated>2013-02-12T13:36:00+13:00</updated>
-    <id>http://ishu3101.github.com/Ruby-on-Rails-Log-Analyzer-Review</id>
+    <link href="http://yoursite.com/Ruby-on-Rails-Log-Analyzer-Review/"/>
+    <updated>2013-02-13T13:36:00+13:00</updated>
+    <id>http://yoursite.com/Ruby-on-Rails-Log-Analyzer-Review</id>
     <content type="html"><![CDATA[<p>I was recently asked to research some of the Ruby on Rails Log Analyzer and come up with what I thought would be most useful Ruby on Rails Log Analyzer to use.</p>
 
 <h4>These were the requirements for the Ruby on Rails Log Analyzer.</h4>
@@ -242,62 +242,11 @@ PostsController#archive                          471  621.67    8.04    1.04    
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Hi]]></title>
-    <link href="http://ishu3101.github.com/hi/"/>
-    <updated>2013-01-14T15:54:00+13:00</updated>
-    <id>http://ishu3101.github.com/hi</id>
-    <content type="html"><![CDATA[<p><strong>Hello Octopress!</strong></p>
-
-<p>How to create a shopping cart using Ruby on Rails:</p>
-
-<p><strong>In this tutorial, we are going to learn how to create a shopping cart using Ruby on Rails.</strong></p>
-
-<p>I strongly recommend against using any <code>&lt;blink&gt;</code> tags.</p>
-
-<p>I wish SmartyPants used named entities like <code>&amp;mdash;</code>
-instead of decimal-encoded entites like <code>&amp;#8212;</code>.</p>
-
-<h1>A First Level Header</h1>
-
-<h2>A Second Level Header</h2>
-
-<p>Now is the time for all good men to come to
-the aid of their country. This is just a
-regular paragraph.</p>
-
-<p>The quick brown fox jumped over the lazy
-dog&#8217;s back.</p>
-
-<h3>Header 3</h3>
-
-<blockquote><p>This is a blockquote.</p>
-
-<p>This is the second paragraph in the blockquote.</p>
-
-<h2>This is an H2 in a blockquote</h2></blockquote>
-
-<p>If you want your page to validate under XHTML 1.0 Strict,
-you&#8217;ve got to put paragraph tags in your blockquotes:</p>
-
-<pre><code>Here is an example of AppleScript:
-
-tell application "Foo"
-    beep
-end tell
-</code></pre>
-
-<figure class='code'><figcaption><span>Discover if a number is prime </span><a href='http://www.noulakaz.net/weblog/2007/03/18/a-regular-expression-to-check-for-prime-numbers/'>Source Article</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Fixnum</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">prime?</span>
-</span><span class='line'>    <span class="p">(</span><span class="s1">&#39;1&#39;</span> <span class="o">*</span> <span class="nb">self</span><span class="p">)</span> <span class="o">!~</span> <span class="sr">/^1?$|^(11+?)\1+$/</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
+    <title type="html"><![CDATA[Welcome]]></title>
+    <link href="http://yoursite.com/welcome/"/>
+    <updated>2013-02-12T15:54:00+13:00</updated>
+    <id>http://yoursite.com/welcome</id>
+    <content type="html"><![CDATA[<p>Welcome to my blog.</p>
 ]]></content>
   </entry>
   
