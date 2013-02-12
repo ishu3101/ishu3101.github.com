@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rails | Ruby on rails]]></title>
+  <link href="http://ishu3101.github.com/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://ishu3101.github.com/"/>
+  <updated>2013-02-13T11:52:11+13:00</updated>
+  <id>http://ishu3101.github.com/</id>
+  <author>
+    <name><![CDATA[Ishan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby on Rails Log Analyzer Review]]></title>
+    <link href="http://ishu3101.github.com/Ruby-on-Rails-Log-Analyzer-Review/"/>
+    <updated>2013-02-12T13:36:00+13:00</updated>
+    <id>http://ishu3101.github.com/Ruby-on-Rails-Log-Analyzer-Review</id>
+    <content type="html"><![CDATA[<p>I was recently asked to research some of the Ruby on Rails Log Analyzer and come up with what I thought would be most useful Ruby on Rails Log Analyzer to use.</p>
+
+<h4>These were the requirements for the Ruby on Rails Log Analyzer.</h4>
+
+<ul>
+<li>Needed to be fast.</li>
+<li>Easy to use</li>
+<li>Able to analyze large files (up to 10GB) quickly.</li>
+<li>Report produced must be easy to follow.</li>
+<li>Tells us where to focus our best optimization on.</li>
+</ul>
+
+
+<p> Here I review what I thought to be the best three Ruby on Rails Log Analyzer available.</p>
+
+<p> <!-- more --></p>
+
+<h2><a href="http://rubyforge.org/projects/rawk-the-logs/">Rawk</a></h2>
+
+<p>A simple and powerful Ruby on Rails production log analyzer. This tool takes a log file and reports min, max, average, median, and std time for each rails action.</p>
+
+<p><a href="http://rubyforge.org/frs/?group_id=2517&amp;release_id=15246">Download</a></p>
+
+<h3>Features</h3>
+
+<p>Shows the Top 20</p>
+
+<ul>
+<li>Least Min</li>
+<li>Greatest Median</li>
+<li>Greatest Standard Deviation and</li>
+<li>The Worst Requests</li>
+</ul>
+
+
+<h3>Usage</h3>
+
+<pre><code>ruby rawk.rb &lt; production.log
+</code></pre>
+
+<h4>Pros</h4>
+
+<ul>
+<li>Simple to use.</li>
+<li>Very Quick.</li>
+<li>It is just a single file.</li>
+</ul>
+
+
+<h4>Cons</h4>
+
+<ul>
+<li>Could not get it working.</li>
+<li>Requires appending something to our log - the process id of each log message in order to be able to get the request by controller action which take the most time overall:</li>
+</ul>
+
+
+<p>To include process ids in your log file, add this to environment.rb:</p>
+
+<p>``` ruby
+class Logger</p>
+
+<pre><code>def format_message(severity, timestamp, progname, msg)
+  "#{msg} (pid:#{$$})\n"
+end
+</code></pre>
+
+<p>  end
+```</p>
+
+<p>When I run it, this is the error message that I received.</p>
+
+<pre><code>Printing report for total request times
+--------
+Request                                        Count        Sum     Max  Median     Avg     Min     Std
+rawk.rb:41:in `/': divided by 0 (ZeroDivisionError)
+    from rawk.rb:41:in `average'
+    from rawk.rb:56:in `to_s'
+    from rawk.rb:197:in `print_stats'
+    from rawk.rb:123:in `initialize'
+    from rawk.rb:224:in `new'
+    from rawk.rb:224:in `&lt;main&gt;'
+</code></pre>
+
+<p>The mostly helpful category in the output is the <strong>Top 20 by Sum of Time</strong>
+as it lists all the different request which took the most time to process overall. So if we focus our optimization on these request we will get the most value out of your money and optimize the overall performace of our application.</p>
+
+<p>By default, <strong>Top 20 by Sum of Time</strong> category request is sorted by the path which took the most time, but by including the processor id into your
+log file, it sorts it by the controller action which took the most time.
+Here is an example of <strong>Top 20 by Sum of Time</strong> log output grouped by controller action.</p>
+
+<pre><code>Top 20 by Sum of Time
+Request                                        Count     Sum     Max  Median     Avg     Min     Std
+PostsController#show                          114774 108206.28   24.09    0.52    0.94    0.00    1.23
+PostsController#index                          41067 32131.50   27.25    0.62    0.78    0.00    0.70
+PostsController#ajax_comments_update          364123 15793.85    3.73    0.02    0.04    0.01    0.08
+SsoController#initiate_auto_login             112044 12854.58   21.99    0.00    0.11    0.00    0.65
+SportsDataController#player                    10317 6288.09   12.55    0.36    0.61    0.00    0.85
+SearchController#index                         14717 5583.74   15.40    0.28    0.38    0.00    0.60
+SportsDataController#team_news_detail          11912 5165.88   31.45    0.29    0.43    0.11    0.57
+SportsDataController#event                      8569 5072.49   10.68    0.44    0.59    0.00    0.51
+SportsDataController#team                       2315 2819.42   36.51    0.65    1.22    0.00    2.31
+UsersController#profile                        12629 2793.15    6.69    0.00    0.22    0.00    0.43
+PostsController#list                            6545 2599.97    5.66    0.28    0.40    0.00    0.32
+SportsDataController#schedule                    832 2152.54   19.36    0.83    2.59    0.11    4.04
+AccountController#login                         2005 1706.10   60.15    0.04    0.85    0.00    2.22
+RssController#fanposts                          3482 1635.35    7.81    0.39    0.47    0.00    0.30
+RssController#frontpage                         2588 1559.98    4.86    0.51    0.60    0.00    0.41
+PostsController#comment                         8578 1054.69    1.54    0.09    0.12    0.00    0.11
+PortalController#index                           692  892.95   16.09    1.09    1.29    0.00    0.99
+SsoController#auto_login_for_community          5874  667.95    6.86    0.01    0.11    0.00    0.60
+SportsDataController#news                        715  648.44   39.39    0.36    0.91    0.13    2.80
+PostsController#archive                          471  621.67    8.04    1.04    1.32    0.13    1.02
+</code></pre>
+
+<p>We can see that the <strong>show action</strong> in the <strong>PostsController</strong> is taking the most time overall, while out of all the controllers, <strong>PostsController</strong> and the <strong>SportsDataController</strong> are the ones which take the most time and hence we can focus our optimization on that.</p>
+
+<!-- It also shows the Top 20 Least Min, Greatest Median, Greatest Standard Deviation and the Worst Requests -->
+
+
+<h2><a href="http://rails-analyzer.rubyforge.org/">Rails Analyzer</a></h2>
+
+<p>The <strong>Rails Analyzer</strong> project contains a collection of tools for Rails that let you discover biggest slow spots in your applications allowing you to best focus optimization efforts.</p>
+
+<p><strong>Production Log Analyzer</strong> is what we require from the four tools as it analyzes Rails log files. It produces a report that tells which actions are the most popular and which take the most time to render allowing you to best focus your optimization on. It also includes action_grep which will give you all log results for a particular action.</p>
+
+<h3>Install</h3>
+
+<pre><code>sudo gem install rails_analyzer_tools production_log_analyzer action_profiler
+</code></pre>
+
+<!-- **Note:** to only install Production Log Analyzer, type 
+`sudo gem install production_log_analyzer` instead -->
+
+
+<h3>Features</h3>
+
+<ul>
+<li>Gives summary of the complete request times, database times and for rendering.</li>
+<li>Summary lists the different requested actions, the count of times they were requested, and the statistics of their performance (average, minimum, and maximum times and the standard deviation).</li>
+<li>The first listing in the output is a summary of the complete request times. After that are similar summaries for the times needed in the database and for the rendering.  From this listing, it is pretty easy to see which actions tend to be the slowest. If a slow action is also a very popular action, it is a good candidate for being optimized in one way or another.</li>
+</ul>
+
+
+<h3>Usage</h3>
+
+<p>For instructions on how to set up Production Log Analyzer, visit http://www.devarticles.com/c/a/Ruby-on-Rails/Using-Rails-Analyzer-for-Performance-Optimization/1/</p>
+
+<h4>Pros</h4>
+
+<ul>
+<li>Lets you look at what happens in the action by using the <strong>action_grep</strong> command.</li>
+</ul>
+
+
+<h4>Cons</h4>
+
+<ul>
+<li>Requires a custom rails logger to be used which may be an issue in your rails application.</li>
+<li>Takes time setting up.</li>
+</ul>
+
+
+<h2><a href="http://www.railsdoctors.com/">Request Log Analyzer</a></h2>
+
+<p>A command line tool to analyze request log files in various formats to produce a performance report. Its purpose is to find what actions are best candidates for optimization.</p>
+
+<h3>Install</h3>
+
+<pre><code>gem install request-log-analyzer
+</code></pre>
+
+<h3>Usage</h3>
+
+<p>To analyze a Rails log file and produce a performance report, run request-log-analyzer like this:</p>
+
+<pre><code>request-log-analyzer log/production.log
+</code></pre>
+
+<p>For more details, other file formats, and available command line options, see the <a href="github.com/wvanbergen/request-log-analyzer/wiki">projects wiki</a>.</p>
+
+<h4>Pros</h4>
+
+<ul>
+<li>Easy to use.</li>
+<li>Very fast.</li>
+<li>Low memory footprint.</li>
+<li>Supports log files from many other formats. Currently supports: Amazon S3, Apache, Delayed::Job, Merb, Mysql, PostgreSQL, Rack, Rails</li>
+</ul>
+
+
+<h4>Cons</h4>
+
+<ul>
+<li>None</li>
+</ul>
+
+
+<h4>Features</h4>
+
+<ul>
+<li>Request distribution per hour</li>
+<li>Most requested</li>
+<li>HTTP methods</li>
+<li>HTTP statuses returned</li>
+<li>Request duration - by sum and mean</li>
+<li>Partials rendering time - by sum and mean</li>
+<li>View rendering time - by sum and mean</li>
+<li>Database time - by sum and mean</li>
+<li>Process blockers (> 1 sec duration)</li>
+</ul>
+
+
+<h2>Conclusion</h2>
+
+<p>Now that you’ve read this review, which rails log analyzer should I use? The Request Log Analyzer gives the summary of the complete request times, database times and rendering times both by sum and mean which is similar to Production Log Analyzer which only shows it by sum. The Request Log Analyzer also has some additional features such as request distribution per hour,  most requested, HTTP methods, HTTP statuses returned. Production Log Analyzer also takes time to set up unlike the other two. Therefore Request Log Analyzer comes ahead of two</p>
+
+<p>I would recommend the Request Log Analyzer due to its speed, ease of use, low memory usage while having the all the feature of Production Log Analyzer plus more. However, Rawk is yet an another good alternative.</p>
+]]></content>
+  </entry>
+  
+</feed>
