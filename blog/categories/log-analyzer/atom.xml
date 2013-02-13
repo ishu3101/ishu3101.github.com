@@ -4,7 +4,7 @@
   <title><![CDATA[Category: log analyzer | Ruby on rails]]></title>
   <link href="http://ishu3101.github.com/blog/categories/log-analyzer/atom.xml" rel="self"/>
   <link href="http://ishu3101.github.com/"/>
-  <updated>2013-02-13T14:21:00+13:00</updated>
+  <updated>2013-02-13T14:38:22+13:00</updated>
   <id>http://ishu3101.github.com/</id>
   <author>
     <name><![CDATA[Ishan]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ruby on Rails Log Analyzer Review]]></title>
-    <link href="http://ishu3101.github.com/Ruby-on-Rails-Log-Analyzer-Review/"/>
+    <link href="http://ishu3101.github.com/blog/2013/02/13/Ruby-on-Rails-Log-Analyzer-Review/"/>
     <updated>2013-02-13T13:36:00+13:00</updated>
-    <id>http://ishu3101.github.com/Ruby-on-Rails-Log-Analyzer-Review</id>
+    <id>http://ishu3101.github.com/blog/2013/02/13/Ruby-on-Rails-Log-Analyzer-Review</id>
     <content type="html"><![CDATA[<p>I was recently asked to research some of the Ruby on Rails Log Analyzer and come up with what I thought would be most useful Ruby on Rails Log Analyzer to use.</p>
 
 <h4>These were the requirements for the Ruby on Rails Log Analyzer.</h4>
