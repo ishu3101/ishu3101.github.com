@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby on Rails Log Analyzer | Ruby on rails]]></title>
   <link href="http://ishu3101.github.com/blog/categories/ruby-on-rails-log-analyzer/atom.xml" rel="self"/>
   <link href="http://ishu3101.github.com/"/>
-  <updated>2013-02-13T14:38:22+13:00</updated>
+  <updated>2013-02-13T15:08:35+13:00</updated>
   <id>http://ishu3101.github.com/</id>
   <author>
     <name><![CDATA[Ishan]]></name>
@@ -43,13 +43,9 @@
 
 <h3>Features</h3>
 
-<p>Shows the Top 20</p>
-
 <ul>
-<li>Least Min</li>
-<li>Greatest Median</li>
-<li>Greatest Standard Deviation and</li>
-<li>The Worst Requests</li>
+<li>Gives summary of the all the requests, Top 20 Least Min, Greatest Median, Greatest Standard Deviation and The Worst Requests.</li>
+<li>Summary lists the different requested actions, the count and the sum of times they were requested, and the statistics of their performance (average, median, minimum, and maximum times and the standard deviation).</li>
 </ul>
 
 
@@ -144,6 +140,14 @@ PostsController#archive                          471  621.67    8.04    1.04    
 
 <p><strong>Production Log Analyzer</strong> is what we require from the four tools as it analyzes Rails log files. It produces a report that tells which actions are the most popular and which take the most time to render allowing you to best focus your optimization on. It also includes action_grep which will give you all log results for a particular action.</p>
 
+<h3>Features</h3>
+
+<ul>
+<li>Gives summary of the complete request times, database times and for rendering.</li>
+<li>Summary lists the different requested actions, the count of times they were requested, and the statistics of their performance (average, minimum, and maximum times and the standard deviation).</li>
+</ul>
+
+
 <h3>Install</h3>
 
 <pre><code>sudo gem install rails_analyzer_tools production_log_analyzer action_profiler
@@ -151,15 +155,6 @@ PostsController#archive                          471  621.67    8.04    1.04    
 
 <!-- **Note:** to only install Production Log Analyzer, type 
 `sudo gem install production_log_analyzer` instead -->
-
-
-<h3>Features</h3>
-
-<ul>
-<li>Gives summary of the complete request times, database times and for rendering.</li>
-<li>Summary lists the different requested actions, the count of times they were requested, and the statistics of their performance (average, minimum, and maximum times and the standard deviation).</li>
-<li>The first listing in the output is a summary of the complete request times. After that are similar summaries for the times needed in the database and for the rendering.  From this listing, it is pretty easy to see which actions tend to be the slowest. If a slow action is also a very popular action, it is a good candidate for being optimized in one way or another.</li>
-</ul>
 
 
 <h3>Usage</h3>
@@ -184,6 +179,18 @@ PostsController#archive                          471  621.67    8.04    1.04    
 <h2><a href="http://www.railsdoctors.com/">Request Log Analyzer</a></h2>
 
 <p>A command line tool to analyze request log files in various formats to produce a performance report. Its purpose is to find what actions are best candidates for optimization.</p>
+
+<h4>Features</h4>
+
+<ul>
+<li>Request distribution per hour</li>
+<li>Controller actions that are the most requested</li>
+<li>Gives hits and percentage of each of the HTTP methods - GET, POST, DELETE, PUT and the HTTP statuses returned.</li>
+<li>Process blockers (> 1 sec duration)</li>
+<li>Gives summary of Request duration, Partials rendering time, View rendering time, Database time by both sum and mean.</li>
+<li>Summary lists the different requested actions, the hits and the sum of times they were requested, and the statistics of their performance (average, minimum, and maximum times, standard deviation and the 95 %tile).</li>
+</ul>
+
 
 <h3>Install</h3>
 
@@ -216,26 +223,11 @@ PostsController#archive                          471  621.67    8.04    1.04    
 </ul>
 
 
-<h4>Features</h4>
-
-<ul>
-<li>Request distribution per hour</li>
-<li>Most requested</li>
-<li>HTTP methods</li>
-<li>HTTP statuses returned</li>
-<li>Request duration - by sum and mean</li>
-<li>Partials rendering time - by sum and mean</li>
-<li>View rendering time - by sum and mean</li>
-<li>Database time - by sum and mean</li>
-<li>Process blockers (> 1 sec duration)</li>
-</ul>
-
-
 <h2>Conclusion</h2>
 
 <p>Now that you’ve read this review, which rails log analyzer should I use? The Request Log Analyzer gives the summary of the complete request times, database times and rendering times both by sum and mean which is similar to Production Log Analyzer which only shows it by sum. The Request Log Analyzer also has some additional features such as request distribution per hour,  most requested, HTTP methods, HTTP statuses returned. Production Log Analyzer also takes time to set up unlike the other two. Therefore Request Log Analyzer comes ahead of two</p>
 
-<p>I would recommend the Request Log Analyzer due to its speed, ease of use, low memory usage while having the all the feature of Production Log Analyzer plus more. However, Rawk is yet an another good alternative.</p>
+<p>I would recommend the Request Log Analyzer due to its speed, ease of use, low memory usage while having the all the feature of Production Log Analyzer plus more. However, Rawk is yet an another good alternative if you can get it working.</p>
 ]]></content>
   </entry>
   
